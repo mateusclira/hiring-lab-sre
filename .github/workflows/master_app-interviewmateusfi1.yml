@@ -42,8 +42,8 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v2
         with:
-          name: web-app
-          path: .
+          name: customer-app
+          path: /front-end/
           
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
