@@ -10,11 +10,11 @@ terraform {
 provider "azurerm" {
   features {}
   skip_provider_registration = true
-
-  //subscription_id   = "<azure_subscription_id>"
-  //tenant_id         = "<azure_subscription_tenant_id>"
-  //client_id         = "<service_principal_appid>"
-  //client_secret     = "<service_principal_password>"
+  
+  //subscription_id   = "66c330d1-bac6-41ca-9de1-095067a89dc6"
+  //tenant_id         = "4565bb37-9773-4d2e-80b6-398babdc2a33"
+  //client_id         = "2fc64fcf-25bc-4c30-a2e1-41a9daa0a759"
+  //client_secret     = var.client_secret
 }
 
 resource "random_string" "random_suffix" {
