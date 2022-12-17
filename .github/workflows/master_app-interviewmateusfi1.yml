@@ -28,7 +28,8 @@ jobs:
           source venv/bin/activate
 
       - name: Install dependencies
-        run: 
+        run: |
+          cd back-end/web-api
           pip install -r requirements.txt
 
   deploy:
@@ -42,8 +43,8 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v2
         with:
-          name: customer-app
-          path: /front-end/
+          name: python-app
+          path: .
           
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
