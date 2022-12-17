@@ -44,7 +44,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: python-app
-          path: front-end/customer-api
+          path: front-end/customer-app
           
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
