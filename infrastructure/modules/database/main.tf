@@ -16,3 +16,4 @@ resource "azurerm_postgresql_flexible_server_database" "main" {
   collation = "en_US.utf8"
   charset   = "utf8"
 }
+
