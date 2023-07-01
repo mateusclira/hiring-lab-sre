@@ -1,4 +1,4 @@
-# KXP SRE Hiring Lab: Infraestrutura
+# SRE Hiring Lab: Infraestrutura
 
 A infraestrutura da aplicação consiste em:
 
