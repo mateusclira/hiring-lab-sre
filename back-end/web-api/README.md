@@ -1,4 +1,4 @@
-# KXP SRE Hiring Lab: Web API
+# SRE Hiring Lab: Web API
 
 Esta é uma API de exemplo construída em Flask (Python) que armazena e retorna em um banco de dados os "posts" da aplicação. 
 
