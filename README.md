@@ -1,4 +1,4 @@
-# KXP SRE Hiring Lab
+# SRE Hiring Lab
 Olá caro participante estamos felizes da sua disposição para realizar esse teste, ele não será dificil mas envolverá muita atenção.
 
 O laboratório foi testado, porém podem haver mudanças nas tecnologias envolvidas, então certifique-se de verificar os erros apresentados com cuidado.
