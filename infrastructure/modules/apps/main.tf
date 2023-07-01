@@ -20,5 +20,4 @@ resource "azurerm_linux_web_app" "main" {
       python_version = 3.9
     }
   }
-
 }
