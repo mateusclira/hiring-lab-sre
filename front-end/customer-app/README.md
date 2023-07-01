@@ -1,4 +1,4 @@
-# KXP SRE Hiring Lab: Customer App
+# SRE Hiring Lab: Customer App
 
 Este é um SPA criado em ReactJS para simular uma comunição simples com o back-end. Ele simula 2 funcionalidades apenas:
 
