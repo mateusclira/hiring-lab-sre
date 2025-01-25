@@ -1,6 +1,7 @@
 
 import datetime
-from flask_sqlalchemy import Model
+import sqlalchemy
+from flask_sqlalchemy import SQLAlchemy
 
 from sqlalchemy import desc
 from database import db_session, init_db
@@ -40,4 +41,4 @@ def shutdown_session(exception=None):
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host="0.0.0.0", port=5000)

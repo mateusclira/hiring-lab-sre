@@ -10,7 +10,7 @@ load_dotenv()
 
 DATABASE_URI = os.environ.get("DATABASE_URI")
 
-engine = create_engine(DATABASE_URI, convert_unicode=True)
+engine = create_engine(DATABASE_URI)
 
 db_session = scoped_session(sessionmaker(autocommit=False,
                                          autoflush=False,
@@ -26,10 +26,10 @@ def init_db():
     Base.metadata.create_all(bind=engine)
 
     first_post = Post(description="Meu primeiro post. Que lugar legal para postar meus artigos técnicos!",
-                      created_by="Rafael Canto", created_at=datetime.today() - timedelta(days=1))
+                      created_by="Mateus Lira", created_at=datetime.today() - timedelta(days=1))
 
     second_post = Post(description="Meu segundo post. Ainda aprendendo o que postar.",
-                       created_by="Rafael Canto", created_at=datetime.today())
+                       created_by="Mateus Lira", created_at=datetime.today())
 
     db_session.add(first_post)
     db_session.add(second_post)

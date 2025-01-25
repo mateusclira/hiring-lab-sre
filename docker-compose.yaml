@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./back-end/web-api
+    container_name: flask-backend
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./back-end/web-api/.env
+    depends_on:
+      - db
+    volumes:
+      - ./back-end/web-api/:/app
+    command: python3 app.py
+
+  frontend:
+    build:
+      context: ./front-end/customer-app
+    container_name: react-frontend
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./front-end/customer-app/.env
+    volumes:
+      - ./front-end/customer-app:/app
+    stdin_open: true
+    tty: true
+    command: sh -c "npm install && npm start"
+    user: "node"
+
+  db:
+    image: postgres:15
+    container_name: postgres-db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: dbadmin
+      POSTGRES_PASSWORD: abcd1234
+      POSTGRES_DB: customer_db
+
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:
