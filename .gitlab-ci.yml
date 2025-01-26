@@ -1,0 +1,55 @@
+image: docker:latest
+
+services:
+  - docker:dind
+
+variables:
+  DOCKER_DRIVER: overlay2
+
+stages:
+  - build
+  - test
+  - deploy
+
+build_images:
+  stage: build
+  script:
+    - echo "Building Docker images for backend and frontend..."
+
+    - docker build -t backend-image:latest -f back-end/web-api/Dockerfile back-end/web-api
+    - docker build -t frontend-image:latest -f front-end/customer-app/Dockerfile front-end/customer-app
+
+  only:
+    - main
+
+test_compose:
+  stage: test
+  script:
+    - echo "Starting Docker Compose to check if everything is working..."
+
+    - docker version
+    - docker-compose up -d
+    - sleep 15
+    - curl http://localhost:5000/
+    - docker-compose down
+
+  only:
+    - main
+
+deploy_images:
+  stage: deploy
+  script:
+    - echo "Deploying images to container registry..."
+
+    # 1. Log in to your registry (Docker Hub or GitLab). e.g. Docker Hub:
+    - docker login -u "$DOCKER_REGISTRY_USER" -p "$DOCKER_REGISTRY_PAT"
+
+    # 2. Tag and push
+    - docker tag backend-image:latest docker.io/mateusclira/backend:latest
+    - docker push docker.io/mateusclira/backend:latest
+
+    - docker tag frontend-image:latest docker.io/mateusclira/frontend:latest
+    - docker push docker.io/mateusclira/frontend:latest
+
+  only:
+    - main
